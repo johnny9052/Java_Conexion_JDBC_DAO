@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered ConexionJDBCDAO 2015.03.12 12-39-27-861">
+  <ClassDiagramComponents>
+    <Class xPosition="20.0" yPosition="20.0" package="Controlador" name="CtlUsuario" visibility="public">
+      <Constructors>
+        <Constructor name="CtlUsuario" visibility="public"/>
+      </Constructors>
+      <Fields>
+        <Field name="conexion" visibility="package" type="ClsConexion"/>
+      </Fields>
+      <Methods>
+        <Method name="SolicitudGuardar" visibility="public" returnType="boolean">
+          <Argument type="int" name="cedula"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="SolicitudBuscar" visibility="public" returnType="ClsUsuario">
+          <Argument type="int" name="cedula"/>
+        </Method>
+        <Method name="SolicitudModificar" visibility="public" returnType="boolean">
+          <Argument type="int" name="cedula"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="solicitudEliminar" visibility="public" returnType="boolean">
+          <Argument type="int" name="cedula"/>
+        </Method>
+        <Method name="SolicitudListar" visibility="public" returnType="DefaultTableModel"/>
+      </Methods>
+    </Class>
+    <Class xPosition="320.0" yPosition="20.0" package="DAO" name="UsuarioDAO" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="dao" visibility="package" type="ClsUsuario"/>
+      </Fields>
+      <Methods>
+        <Method name="guardarUsuario" visibility="public" returnType="boolean">
+          <Argument type="ClsUsuario" name="usuDAO"/>
+        </Method>
+        <Method name="buscarUsuario" visibility="public" returnType="ClsUsuario">
+          <Argument type="int" name="cedula"/>
+        </Method>
+        <Method name="modificarUsuario" visibility="public" returnType="boolean">
+          <Argument type="ClsUsuario" name="usuDAO"/>
+        </Method>
+        <Method name="eliminarUsuario" visibility="public" returnType="boolean">
+          <Argument type="int" name="cedula"/>
+        </Method>
+        <Method name="listarUsuario" visibility="public" returnType="DefaultTableModel"/>
+      </Methods>
+    </Class>
+    <Class xPosition="620.0" yPosition="20.0" package="Modelo" name="ClsConexion" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="driver" visibility="protected" type="String"/>
+        <Field name="connectString" visibility="protected" type="String"/>
+        <Field name="user" visibility="protected" type="String"/>
+        <Field name="password" visibility="protected" type="String"/>
+        <Field name="conexionDB" visibility="protected" type="Connection"/>
+        <Field name="sentenciaSQL" visibility="protected" type="Statement"/>
+        <Field name="resultadoDB" visibility="protected" type="ResultSet"/>
+      </Fields>
+      <Methods>
+        <Method name="conectar" visibility="public" returnType="void"/>
+        <Method name="desconectar" visibility="public" returnType="void"/>
+        <Method name="ejecutar" visibility="public" returnType="boolean">
+          <Argument type="String" name="sentencia"/>
+        </Method>
+        <Method name="ejecutarRetorno" visibility="public" returnType="void">
+          <Argument type="String" name="sentencia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="920.0" yPosition="20.0" package="Modelo" name="ClsUsuario" visibility="public">
+      <Constructors>
+        <Constructor name="ClsUsuario" visibility="public">
+          <Argument type="int" name="cedula"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+        </Constructor>
+        <Constructor name="ClsUsuario" visibility="public"/>
+      </Constructors>
+      <Fields>
+        <Field name="cedula" visibility="private" type="int"/>
+        <Field name="nombre" visibility="private" type="String"/>
+        <Field name="apellido" visibility="private" type="String"/>
+        <Field name="edad" visibility="private" type="int"/>
+      </Fields>
+      <Methods>
+        <Method name="getCedula" visibility="public" returnType="int"/>
+        <Method name="setCedula" visibility="public" returnType="void">
+          <Argument type="int" name="cedula"/>
+        </Method>
+        <Method name="getNombre" visibility="public" returnType="String"/>
+        <Method name="setNombre" visibility="public" returnType="void">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" visibility="public" returnType="String"/>
+        <Method name="setApellido" visibility="public" returnType="void">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" visibility="public" returnType="int"/>
+        <Method name="setEdad" visibility="public" returnType="void">
+          <Argument type="int" name="edad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="20.0" yPosition="420.0" package="Vista" name="JfrmUsuario" visibility="public">
+      <Constructors>
+        <Constructor name="JfrmUsuario" visibility="public"/>
+      </Constructors>
+      <Fields>
+        <Field name="controller" visibility="package" type="CtlUsuario"/>
+        <Field name="btnBuscar" visibility="private" type="javax.swing.JButton"/>
+        <Field name="btnEliminar" visibility="private" type="javax.swing.JButton"/>
+        <Field name="btnGuardar" visibility="private" type="javax.swing.JButton"/>
+        <Field name="btnLimpiar" visibility="private" type="javax.swing.JButton"/>
+        <Field name="btnModificar" visibility="private" type="javax.swing.JButton"/>
+        <Field name="jLabel1" visibility="private" type="javax.swing.JLabel"/>
+        <Field name="jLabel2" visibility="private" type="javax.swing.JLabel"/>
+        <Field name="jLabel3" visibility="private" type="javax.swing.JLabel"/>
+        <Field name="jLabel4" visibility="private" type="javax.swing.JLabel"/>
+        <Field name="jPanel1" visibility="private" type="javax.swing.JPanel"/>
+        <Field name="jRadioButton1" visibility="private" type="javax.swing.JRadioButton"/>
+        <Field name="jScrollPane1" visibility="private" type="javax.swing.JScrollPane"/>
+        <Field name="tblUsuario" visibility="private" type="javax.swing.JTable"/>
+        <Field name="txtApellidos" visibility="private" type="javax.swing.JTextField"/>
+        <Field name="txtCedula" visibility="private" type="javax.swing.JTextField"/>
+        <Field name="txtEdad" visibility="private" type="javax.swing.JTextField"/>
+        <Field name="txtNombre" visibility="private" type="javax.swing.JTextField"/>
+      </Fields>
+      <Methods>
+        <Method name="initComponents" visibility="private" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void"/>
+        <Method name="btnLimpiarMouseClicked" visibility="private" returnType="void">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnGuardarMouseClicked" visibility="private" returnType="void">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnBuscarMouseClicked" visibility="private" returnType="void">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnModificarMouseClicked" visibility="private" returnType="void">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="btnEliminarMouseClicked" visibility="private" returnType="void">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="limpiar" visibility="public" returnType="void"/>
+        <Method name="cargarInformacion" visibility="public" returnType="void">
+          <Argument type="ClsUsuario" name="usuario"/>
+        </Method>
+        <Method name="listar" visibility="private" returnType="void"/>
+        <Method name="main" visibility="public" returnType="void" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="UsuarioDAO" target="ClsUsuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="JfrmUsuario" target="ClsUsuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CtlUsuario" target="ClsUsuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="conexion" source="CtlUsuario" target="ClsConexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="controller" source="JfrmUsuario" target="CtlUsuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dao" source="UsuarioDAO" target="ClsUsuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="UsuarioDAO" target="ClsConexion"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
